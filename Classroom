@@ -1,0 +1,12 @@
+WS380 environment:
+URL: https://rol.redhat.com/rol/app/classes/28304ca7-1a51-4446-b9e4-2d1cc0b6f247
+username: kubeadmin
+password: FvTVJ-rUgJe-CtUpq-Qshpq
+
+To connect to your OpenShift web console from the WS380 environment:
+
+console-openshift-console.apps.ocp4.example.com
+
+to connect to the openshift command line:
+
+oc login -u kubeadmin -p FvTVJ-rUgJe-CtUpq-Qshpq https://api.ocp4.example.com:6443
