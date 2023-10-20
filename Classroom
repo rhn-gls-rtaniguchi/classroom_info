@@ -53,7 +53,40 @@ Listing 23. Creating a second pod to explore OpenShift DNS resolution for differ
   pod.apps/cli created
   sh-4.4#
 
+The commands from page 10:
 
+Listing 27. Creating an HTTPD deploy to test contents
+  [student@workstation ~]$ oc create deploy httpd --image
+  registry.ocp4.example.com:8443/ubi8/httpd-24
+  ....
+Listing 29. Creating a second pod to explore OpenShift DNS resolution for different projects
+  [student@workstation ~]$ oc run -it cli --image
+  registry.ocp4.example.com:8443/openshift/origin-cli:4.12 --command -- /bin/bash
+  pod.apps/cli created
+  sh-4.4#
+
+are actually:
+
+Listing 27. Creating an HTTPD deploy to test contents
+  [student@workstation ~]$ oc create deploy httpd --image registry.access.redhat.com/ubi8/httpd-24
+  ....
+Listing 29. Creating a second pod to explore OpenShift DNS resolution for different projects
+  [student@workstation ~]$ oc run -it cli --image registry.access.redhat.com/openshift/origin-cli:4.12 --command -- /bin/bash
+  pod.apps/cli created
+  sh-4.4#
+
+=========
+Page 11:
+
+Listing 33. Creating a second pod to check that NetworkPolicy blocks the access to the pod
+  [student@workstation ~]$ oc run -it cli --image registry.access.redhat.com/openshift/origin-cli:4.12 --command -- /bin/bash
+  pod.apps/cli created
+
+Listing 35. Deploying a third pod to check that networkpolicy allows access to the pod due to a label:
+  [student@workstation ~]$ oc run -it cli-allowed --labels="access=true" --image registry.access.redhat.com/openshift/origin-cli:4.12 --command -- /bin/bash
+
+Are actually
+=========
 To download Butane CLI: (Converts files defined in the format presented here (https://github.com/coreos/butane/blob/main/docs/config-openshift-v4_13.md) into a machine config)
 https://mirror.openshift.com/pub/openshift-v4/clients/butane/latest/
 
