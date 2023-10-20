@@ -29,6 +29,29 @@ Listing 10. Deploy an application to be used to access the previous hello world 
   [student@workstation ~]$  oc create deploy hello-nginx --image quay.io/redhattraining/hello-world-nginx
 
 
+The commands from page 9:
+
+Listing 20. Creating an HTTPD deploy to test contents
+  [student@workstation ~]$ oc create deploy httpd --image
+  registry.ocp4.example.com:8443/ubi8/httpd-24
+  ....
+
+Listing 23. Creating a second pod to explore OpenShift DNS resolution for different projects
+  [student@workstation ~]$ oc run -it cli --image
+  registry.ocp4.example.com:8443/openshift/origin-cli:4.12 --command -- /bin/bash
+  pod.apps/cli created
+  sh-4.4#
+
+Are actually:
+
+Listing 20. Creating an HTTPD deploy to test contents
+  [student@workstation ~]$ oc create deploy httpd --image registry.access.redhat.com/ubi8/httpd-24
+  ....
+
+Listing 23. Creating a second pod to explore OpenShift DNS resolution for different projects
+  [student@workstation ~]$ oc run -it cli --image registry.access.redhat.com/openshift/origin-cli:4.12 --command -- /bin/bash
+  pod.apps/cli created
+  sh-4.4#
 
 
 To download Butane CLI: (Converts files defined in the format presented here (https://github.com/coreos/butane/blob/main/docs/config-openshift-v4_13.md) into a machine config)
