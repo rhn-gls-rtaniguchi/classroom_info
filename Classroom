@@ -10,3 +10,10 @@ console-openshift-console.apps.ocp4.example.com
 to connect to the openshift command line:
 
 oc login -u kubeadmin -p FvTVJ-rUgJe-CtUpq-Qshpq https://api.ocp4.example.com:6443
+
+
+To download Butane CLI: (Converts files defined in the format presented here (https://github.com/coreos/butane/blob/main/docs/config-openshift-v4_13.md) into a machine config)
+https://mirror.openshift.com/pub/openshift-v4/clients/butane/latest/
+
+Remember that you need to define a machine config pool as stated here:
+https://www.redhat.com/en/blog/openshift-container-platform-4-how-does-machine-config-pool-work
