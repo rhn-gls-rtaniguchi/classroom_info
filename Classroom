@@ -12,6 +12,25 @@ to connect to the openshift command line:
 oc login -u kubeadmin -p FvTVJ-rUgJe-CtUpq-Qshpq https://api.ocp4.example.com:6443
 
 
+BE CAREFUL! 
+
+The commands from page 7:
+
+Listing 9. Deploy an application to be used to connect to another pod
+  [student@workstation ~]$  oc create deploy hello-php --image registry.ocp4.example.com:8443/redhattraining/php-hello-dockerfile
+Listing 10. Deploy an application to be used to access the previous hello world app
+  [student@workstation ~]$  oc create deploy hello-nginx --image registry.ocp4.example.com:8443/redhattraining/hello-world-nginx
+
+ARE ACTUALLY:
+
+Listing 9. Deploy an application to be used to connect to another pod
+  [student@workstation ~]$  oc create deploy hello-php --image quay.io/redhattraining/php-hello-dockerfile
+Listing 10. Deploy an application to be used to access the previous hello world app
+  [student@workstation ~]$  oc create deploy hello-nginx --image quay.io/redhattraining/hello-world-nginx
+
+
+
+
 To download Butane CLI: (Converts files defined in the format presented here (https://github.com/coreos/butane/blob/main/docs/config-openshift-v4_13.md) into a machine config)
 https://mirror.openshift.com/pub/openshift-v4/clients/butane/latest/
 
